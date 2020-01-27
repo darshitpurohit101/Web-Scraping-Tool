@@ -14,22 +14,17 @@ response =urlopen(request)
 ##page = urlopen(url).read()
 soup = BeautifulSoup(response,'html.parser')
 counter = 0
+div_main  = soup.find_all('div', {'class' : 'dgControl hover'})
 
-for div_main in soup.find_all('div', {'id' : 'vm_c'}):
-#    print(div)
-    for div_external in soup.find_all('div', {'class' : 'dg_b'}):
-#        print(div)
-        for div_internal in soup.find_all('div', {'class': 'dgControl hover'}):
-#            print(div_internal)
-            for ul in soup.find_all('ul'):
-#                print(ul)
-                for li in soup.find_all('li'):
+for ul in soup.find_all('ul'):
+            print(ul)
+            for li in soup.find_all('li'):
 #                    print(li)
-                    for image in soup.find_all('div', {'class' : 'iuscp varh'}):
+                for image in soup.find_all('div', {'class' : 'iuscp varh'}):
 #                        print(image)
-                        s = image.find('img')
-                        img = s.get('data-src')
-                        if img != None:
-                           with open("\home\inpace\Documents\image" + str(counter) +".jpeg",'wb') as f:
-                                f.write(urlopen(img).read())
-                                counter += 1
+                    s = image.find('img')
+                    img = s.get('data-src')
+                    if img != None:
+                        with open("\home\inpace\Documents\image" + str(counter) +".jpeg",'wb') as f:
+                            f.write(urlopen(img).read())
+                            counter += 1
