@@ -1,2 +1,5 @@
 # Web-Scraping-Tool
-It will download all the specified images from any sources specified in the script.
+Providing a link( preferred Bing) to a web page containing images, the program will download all the images in that page .
+
+## Technology used
+Python/Beautiful Soup, Python/Requests, Python, Python/Urllib2
